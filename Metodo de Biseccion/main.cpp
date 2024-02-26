@@ -12,7 +12,8 @@ double a, b, p, TOL, FP, FA, error;
 
 //Evalua la funcion f(x) = xcos(x) - 2x^2 + 3x - 1 y devuelve una variable double
 double f(double x){
-	return (x*cos(x) - 2*(pow(x,2)) + (3*x) - 1);
+	//return (x*cos(x) - 2*(pow(x,2)) + (3*x) - 1);
+	return pow(2,p) - 6*cos(p);
 }
 //Se ingresan los valores de los limites inferiores y superiores junto con la Tolerancia y se calcula f(a)
 void ingresoDatos(){
@@ -38,11 +39,11 @@ void cabecera(){
 //Muestra los datos de cada iteracion en una nueva linea. 
 void tabla(){
 	std::cout << std::left << std::setw(15) << i //Se usa la funcion setw() para alinear los datos a la izquierda
-	<< std::left << std::setw(20) << std::setprecision(15) << a //Se usa la funcion setprecision() para que los datos muestren una cantidad especifica de decimales
-	<< std::left << std::setw(20) << std::setprecision(15) << b 
-	<< std::left << std::setw(20) << std::setprecision(15) << p 
-	<< std::left << std::setw(25) << std::setprecision(15) << FP 
-	<< std::left << std::setw(20) << std::setprecision(15) << error << "\n"; //Se inserta una nueva linea para que muestre los datos de la siguiente iteracion
+	<< std::left << std::setw(20) << std::setprecision(16) << a //Se usa la funcion setprecision() para que los datos muestren una cantidad especifica de decimales
+	<< std::left << std::setw(20) << std::setprecision(16) << b 
+	<< std::left << std::setw(20) << std::setprecision(16) << p 
+	<< std::left << std::setw(25) << std::setprecision(16) << FP 
+	<< std::left << std::setw(20) << std::setprecision(16) << error << "\n"; //Se inserta una nueva linea para que muestre los datos de la siguiente iteracion
 }
 //Esta funcion aplica el Metodo de la Biseccion
 void algoritmoBiseccion(){
