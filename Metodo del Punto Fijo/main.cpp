@@ -11,15 +11,17 @@ int i, IT, respuesta;
 double p0, p, TOL, FP, errAbs, errRel;
 
 double f(double p){
-	return (pow(p,4) - 3*(pow(p,2)) - 3); //f(x) = x^4 – 3x^2 – 3
+	//return (pow(p,4) - 3*(pow(p,2)) - 3); //f(x) = x^4 – 3x^2 – 3
 	//return (pow(p,3) + 4*pow(p,2) - 10); //f(x) = x^3 + 4x^2 - 10
+	return 230*pow(p,4) + 18*pow(p,3) + 9*pow(p,2) - 221*p -9; //f(x) =230x^4 + 18x^3 + 9x^2 - 221x - 9
 }
 
 double g(double p){
-	return (pow(3*(pow(p,2)) + 3, 0.25)); //g(x) = (3x^2 + 3)^(1/4)
+	//return (pow(3*(pow(p,2)) + 3, 0.25)); //g(x) = (3x^2 + 3)^(1/4)
 	//return (sqrt(3*pow(p,2)+3)/p); //g(x) = (3x^2 + 3)^(1/2)/x
 	//return (sqrt(10/(p+4))); //g(x) = (10/(x+4))^(1/2)
 	//return (sqrt((10-pow(p,3))/4)); //g(x) = ((10 - x^3)/4)^(1/2)
+	return ((9 -230*pow(p,4) -18*pow(p,3) -9*pow(p,2))/-221);
 }
 
 void ingresoDatos(){
@@ -33,8 +35,8 @@ void ingresoDatos(){
 //Agrega y alinea los titulos de cada columna para la tabla que se va a mostrar
 void cabecera(){
 	std::cout << std::left << std::setw(15) << "\nIteracion" //Se usa la funcion setw() y left para alinear los datos a la izquierda
-	<< std::left << std::setw(20) << "|p0" 
-	<< std::left << std::setw(20) << "|p [g(p0)]" 
+	<< std::left << std::setw(25) << "|p0" 
+	<< std::left << std::setw(25) << "|p [g(p0)]" 
 	<< std::left << std::setw(25) << "|f(p)" 
 	<< std::left << std::setw(25) << "|Error Absoluto" 
 	<< "|Error Relativo\n";
@@ -42,11 +44,11 @@ void cabecera(){
 //Muestra los datos de cada iteracion en una nueva linea.
 void tabla(){
 	std::cout << std::left << std::setw(15) << i 
-	<< std::left << std::setw(20) << std::setprecision(15) << p0 //Se usa la funcion setprecision() para que los datos muestren una cantidad especifica de decimales
-	<< std::left << std::setw(20) << std::setprecision(15) << p 
-	<< std::left << std::setw(25) << std::setprecision(15) << FP
-	<< std::left << std::setw(25) << std::setprecision(15) << errAbs
-	<< std::left << std::setw(25) << std::setprecision(15) << errRel << "\n"; //Se inserta una nueva linea para que muestre los datos de la siguiente iteracion
+	<< std::left << std::setw(25) << std::setprecision(16) << p0 //Se usa la funcion setprecision() para que los datos muestren una cantidad especifica de decimales
+	<< std::left << std::setw(25) << std::setprecision(16) << p 
+	<< std::left << std::setw(25) << std::setprecision(16) << FP
+	<< std::left << std::setw(25) << std::setprecision(16) << errAbs
+	<< std::left << std::setw(25) << std::setprecision(16) << errRel << "\n"; //Se inserta una nueva linea para que muestre los datos de la siguiente iteracion
 }
 //Esta funcion aplica el Metodo del Punto Fijo
 void algoritmoPuntoFijo(){
